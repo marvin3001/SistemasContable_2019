@@ -1,5 +1,5 @@
 package Entidades;
-// Generated 23-sep-2019 13:49:05 by Hibernate Tools 4.3.1
+// Generated 09-24-2019 02:27:54 AM by Hibernate Tools 4.3.1
 
 
 import java.util.HashSet;
@@ -21,51 +21,52 @@ import javax.persistence.Table;
 public class Cuentas  implements java.io.Serializable {
 
 
-     private int cuenta;
+     private String cuenta;
      private String nombre;
      private String tipo;
      private int nivel;
      private String saldo;
      private String rcuenta;
-     private Integer padre;
+     private String cpadre;
      private Set<Dettransaccion> dettransaccions = new HashSet<Dettransaccion>(0);
 
     public Cuentas() {
     }
 
 	
-    public Cuentas(int cuenta, String nombre, String tipo, int nivel, String saldo) {
+    public Cuentas(String cuenta, String nombre, String tipo, int nivel, String saldo, String cpadre) {
         this.cuenta = cuenta;
         this.nombre = nombre;
         this.tipo = tipo;
         this.nivel = nivel;
         this.saldo = saldo;
+        this.cpadre = cpadre;
     }
-    public Cuentas(int cuenta, String nombre, String tipo, int nivel, String saldo, String rcuenta, Integer padre, Set<Dettransaccion> dettransaccions) {
+    public Cuentas(String cuenta, String nombre, String tipo, int nivel, String saldo, String rcuenta, String cpadre, Set<Dettransaccion> dettransaccions) {
        this.cuenta = cuenta;
        this.nombre = nombre;
        this.tipo = tipo;
        this.nivel = nivel;
        this.saldo = saldo;
        this.rcuenta = rcuenta;
-       this.padre = padre;
+       this.cpadre = cpadre;
        this.dettransaccions = dettransaccions;
     }
    
      @Id 
 
     
-    @Column(name="cuenta", unique=true, nullable=false)
-    public int getCuenta() {
+    @Column(name="cuenta", unique=true, nullable=false, length=50)
+    public String getCuenta() {
         return this.cuenta;
     }
     
-    public void setCuenta(int cuenta) {
+    public void setCuenta(String cuenta) {
         this.cuenta = cuenta;
     }
 
     
-    @Column(name="nombre", nullable=false, length=20)
+    @Column(name="nombre", nullable=false, length=200)
     public String getNombre() {
         return this.nombre;
     }
@@ -115,13 +116,13 @@ public class Cuentas  implements java.io.Serializable {
     }
 
     
-    @Column(name="padre")
-    public Integer getPadre() {
-        return this.padre;
+    @Column(name="cpadre", nullable=false, length=50)
+    public String getCpadre() {
+        return this.cpadre;
     }
     
-    public void setPadre(Integer padre) {
-        this.padre = padre;
+    public void setCpadre(String cpadre) {
+        this.cpadre = cpadre;
     }
 
 @OneToMany(fetch=FetchType.LAZY, mappedBy="cuentas")

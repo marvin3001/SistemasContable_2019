@@ -110,7 +110,7 @@ public class DaoCuenta {
         List<Cuentas> listaDeObra = null;
         try {
             iniciaOperacion();
-            listaDeObra = (List<Cuentas>) ses.createQuery("from Cuentas  where str(cuenta) like'"+id+"%' order by cuenta desc").list();
+            listaDeObra = (List<Cuentas>) ses.createQuery("from Cuentas c where str(cuenta) like'"+id+"%' order by c.cuenta").list();
         } catch (HibernateException he) {
             System.out.println("Error en :" + he.getMessage());
             manejaException(he);

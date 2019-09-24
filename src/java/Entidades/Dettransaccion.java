@@ -1,5 +1,5 @@
 package Entidades;
-// Generated 23-sep-2019 13:49:05 by Hibernate Tools 4.3.1
+// Generated 09-24-2019 02:27:54 AM by Hibernate Tools 4.3.1
 
 
 import java.math.BigDecimal;
@@ -24,7 +24,6 @@ public class Dettransaccion  implements java.io.Serializable {
      private long id;
      private Cuentas cuentas;
      private Transaccion transaccion;
-     private long idtransaccion;
      private BigDecimal cargo;
      private BigDecimal abono;
 
@@ -32,17 +31,15 @@ public class Dettransaccion  implements java.io.Serializable {
     }
 
 	
-    public Dettransaccion(long id, Cuentas cuentas, Transaccion transaccion, long idtransaccion) {
+    public Dettransaccion(long id, Cuentas cuentas, Transaccion transaccion) {
         this.id = id;
         this.cuentas = cuentas;
         this.transaccion = transaccion;
-        this.idtransaccion = idtransaccion;
     }
-    public Dettransaccion(long id, Cuentas cuentas, Transaccion transaccion, long idtransaccion, BigDecimal cargo, BigDecimal abono) {
+    public Dettransaccion(long id, Cuentas cuentas, Transaccion transaccion, BigDecimal cargo, BigDecimal abono) {
        this.id = id;
        this.cuentas = cuentas;
        this.transaccion = transaccion;
-       this.idtransaccion = idtransaccion;
        this.cargo = cargo;
        this.abono = abono;
     }
@@ -70,23 +67,13 @@ public class Dettransaccion  implements java.io.Serializable {
     }
 
 @ManyToOne(fetch=FetchType.LAZY)
-    @JoinColumn(name="idcuenta", nullable=false, insertable=false, updatable=false)
+    @JoinColumn(name="idtransaccion", nullable=false)
     public Transaccion getTransaccion() {
         return this.transaccion;
     }
     
     public void setTransaccion(Transaccion transaccion) {
         this.transaccion = transaccion;
-    }
-
-    
-    @Column(name="idtransaccion", nullable=false)
-    public long getIdtransaccion() {
-        return this.idtransaccion;
-    }
-    
-    public void setIdtransaccion(long idtransaccion) {
-        this.idtransaccion = idtransaccion;
     }
 
     

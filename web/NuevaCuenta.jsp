@@ -92,31 +92,7 @@
 
 
 
-                                                <button  type="sumbit" 
-                                                         <%
-                                                             HttpSession m = request.getSession();
-                                                             Cuentas ob = new Cuentas();
-                                                             try {
-                                                                 ob.setCuenta(Integer.parseInt(request.getParameter("codigo")));
-                                                                 ob.setNombre(request.getParameter("descripcion"));
-
-                                                             } catch (Exception e) {
-                                                                 System.out.println("Errorrrrrrr");
-                                                             }
-                                                             ArrayList<Cuentas> cu = (ArrayList<Cuentas>) m.getAttribute("lista");
-                                                             if (cu == null) {
-                                                                 cu = new ArrayList<Cuentas>();
-                                                                 cu.add(ob);
-                                                                 m.setAttribute("lista",cu);
-                                                             } else {
-                                                                 cu.add(ob);
-                                                                 m.setAttribute("lista",cu);
-                                                             }
-
-                                                         %>
-                                                         class="btn btn-primary">
-                                                    Registrar
-                                                </button>
+                                                <button  type="sumbit" class="btn btn-primary">Registrar</button>
 
 
                                             </form>
@@ -146,7 +122,8 @@
 
                                                     </select>
                                                 </div>
-                                                <%                                                    try {
+                                                <%  
+                                                    try {
                                                         cuentas = Integer.parseInt(request.getParameter("cuentas"));
                                                     } catch (Exception e) {
                                                         System.out.println("Try catch:" + e.getMessage());

@@ -1,5 +1,5 @@
 package Entidades;
-// Generated 23-sep-2019 13:49:05 by Hibernate Tools 4.3.1
+// Generated 09-24-2019 02:27:54 AM by Hibernate Tools 4.3.1
 
 
 import java.util.Date;
@@ -90,7 +90,7 @@ public class Transaccion  implements java.io.Serializable {
         this.partida = partida;
     }
 
-@OneToMany(fetch=FetchType.LAZY, mappedBy="cuentas")
+@OneToMany(fetch=FetchType.LAZY, mappedBy="transaccion")
     public Set<Dettransaccion> getDettransaccions() {
         return this.dettransaccions;
     }

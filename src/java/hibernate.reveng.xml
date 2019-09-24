@@ -40,9 +40,9 @@ made subject to such option by the copyright holder.
 Contributor(s):
 -->
 <hibernate-reverse-engineering>
-  <schema-selection match-catalog="sic" match-schema="public"/>
+  <schema-selection match-catalog="sic"/>
+  <table-filter match-name="transaccion"/>
   <table-filter match-name="cuentas"/>
   <table-filter match-name="dettransaccion"/>
-  <table-filter match-name="transaccion"/>
   <table-filter match-name="login"/>
 </hibernate-reverse-engineering>

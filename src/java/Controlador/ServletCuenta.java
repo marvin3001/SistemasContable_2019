@@ -50,21 +50,9 @@ public class ServletCuenta extends HttpServlet {
                 //listaDeCuentas = c.obtenerlistaCuentas();
                 request.setAttribute("listaDeLugares", listaDeCuentas);
                 despachador = request.getRequestDispatcher("NuevaCuenta.jsp");
-            } else if (pagina.equals("/AgregarCuentas.do")) {
-
-                ArrayList<Cuentas> cu = (ArrayList<Cuentas>) request.getSession().getAttribute("lista");
-                System.out.println("-----------------------------------------");
-                if (cu != null) {
-                    for (Cuentas cuentas : cu) {
-                        System.out.println("codigo" + cuentas.getCuenta() + "         descripcio:" + cuentas.getNombre());
-                    }
-                }
-
-                request.getSession().setAttribute("lista", cu);
-                despachador = request.getRequestDispatcher("NuevaCuenta.jsp");
             } else if (pagina.equals("/Codigo.do")) {
                 Cuentas cuen = new Cuentas();
-                //cuen.setCuenta(request.getParameter("codigo"));
+                cuen.setCuenta(request.getParameter("codigo"));
 
                 System.out.println("Dentro del servlet el codigo de la cuenta es :" + cuen.getCuenta());
                 DaoCuenta control = new DaoCuenta();
